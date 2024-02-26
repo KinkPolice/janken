@@ -3,8 +3,6 @@
 let PlayerSelection = (prompt('rock, paper, scissors?'));
 let possibleChoices = ['rock', 'paper', 'scissors'];
 
-debugger;;
-
     //computer chooses between rock, paper, scissors
 function getComputerChoice() {
     let getChoice = Math.floor(Math.random() * possibleChoices.length)
