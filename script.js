@@ -1,18 +1,21 @@
 
 //start the game 
 let PlayerSelection = 'rock';
+let possibleChoices = ['rock', 'paper', 'scissors'];
+
     //computer chooses between rock, paper, scissors
 function getComputerChoice() {
+    debugger;
     const getChoice = Math.floor(Math.random() * possibleChoices.length)
-        if (getChoice =0){
-            getChoice === 'rock';
+        if (getChoice === 0){
+            getChoice = 'rock';
         }else if(getChoice <=1){
-            getChoice === 'paper';
+            getChoice = 'paper';
         }else{
-            getChoice === 'scissors'
+            getChoice = 'scissors'
         }
         return getComputerChoice;
-        }
+ }
    
 
 
@@ -51,7 +54,6 @@ function getComputerChoice() {
         return(getWin);
        
         }
- 
 
 
-
+getComputerChoice();
