@@ -1,12 +1,13 @@
 
 //start the game 
-let PlayerSelection = 'rock';
+let PlayerSelection = (prompt('rock, paper, scissors?'));
 let possibleChoices = ['rock', 'paper', 'scissors'];
+
+debugger;;
 
     //computer chooses between rock, paper, scissors
 function getComputerChoice() {
-    debugger;
-    const getChoice = Math.floor(Math.random() * possibleChoices.length)
+    let getChoice = Math.floor(Math.random() * possibleChoices.length)
         if (getChoice === 0){
             getChoice = 'rock';
         }else if(getChoice <=1){
@@ -14,40 +15,40 @@ function getComputerChoice() {
         }else{
             getChoice = 'scissors'
         }
-        return getComputerChoice;
+        return(getChoice);
  }
    
 
-
-        function getWin(playerSelection, computerSelection){
+        function getWin(playerSelection, getComputerChoice){
             if (playerSelection === getComputerChoice){
                return('tie')
             }
             //player chose rock
-            else if (playerSelection === 'rock') {
-                if (computerSelection === 'paper') {
+            if (playerSelection === 'rock') {
+            
+                if (getComputerChoice === 'paper') {
                     return('you lost')
                 }
-                else if (computerSelection ==='scissors'){
+                else{
                     return('you won')
                 }
 
             //player chose paper
             }
-            else if (playerSelection=== 'paper'){
-                if (computerSelection ==='scissors'){
+            if (playerSelection === 'paper'){
+                if (getComputerChoice === 'scissors'){
                     return('you lost')
                 }
-                else if (computerSelection==='rock'){
+                else{
                     return('you won')
                 }
             }
             //player chose scissos
-            else if (playerSelection==='scissors'){
-                if (computerSelection=== 'paper'){
+            if (playerSelection === 'scissors'){
+                if (getComputerChoice === 'paper'){
                     return('you won')
                 }
-                else if (computerSelection=== 'rock'){
+                else{
                     return('you lost')
                 }
         }
@@ -55,5 +56,4 @@ function getComputerChoice() {
        
         }
 
-
-getComputerChoice();
+        console.log(getWin(PlayerSelection, getComputerChoice()));
