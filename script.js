@@ -1,8 +1,33 @@
-
 //start the game 
-let PlayerSelection = (prompt('rock, paper, scissors?'));
-let possibleChoices = ['rock', 'paper', 'scissors'];
+const btn = document.querySelector('btn')
+const rock = document.querySelector('rock');
+const paper = document.querySelector('paper');
+const scissors = document.querySelector('scissors');
 
+btn.append(rock)
+btn.append(paper)
+btn.append(scissors)
+
+btn.addEventListener('click', playRound);
+
+
+
+    function playRound(){
+        let PlayerSelection = choice();
+        function choice() {
+            if (btn = rock){
+            return PlayerSelection = 'rock';
+        }else if (btn = paper){
+            return PlayerSelection = 'paper';
+        }else if (btn = scissors){
+            return PlayerSelection = 'scissors';
+        }
+    };
+
+        let possibleChoices = ['rock', 'paper', 'scissors'];
+
+
+function onePlay(){
     //computer chooses between rock, paper, scissors
 function getComputerChoice() {
     let getChoice = Math.floor(Math.random() * possibleChoices.length)
@@ -54,4 +79,7 @@ function getComputerChoice() {
        
         }
 
-        console.log(getWin(PlayerSelection, getComputerChoice()));
+        
+    return(onePlay(PlayerSelection, getComputerChoice())); 
+}
+}
