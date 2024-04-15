@@ -102,11 +102,12 @@ let playerScore = 0;
 let computerScore = 0;
 if(win === 'you won'){
     playerScore= playerScore + 1;
-    return document.querySelector('#playerScore').value(playerScore);
+    return document.querySelector('#playerScore input').value(playerScore);
 }else{
     computerScore = computerScore +1;
-    return document.querySelector('#computerScore').value(computerScore);
+    return document.querySelector('#computerScore input').value(computerScore);
 }
 }
-document.getElementsByName('score')[0].value = scoreCount();
+
+document.getElementsByName('playerScore input')[0].value = scoreCount;
     }
