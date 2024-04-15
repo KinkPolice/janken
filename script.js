@@ -109,5 +109,5 @@ if(win === 'you won'){
 }
 }
 
-document.getElementsByName('playerScore input')[0].value = scoreCount;
+document.getElementsById('playerScore input')[0].value = scoreCount;
     }
