@@ -99,7 +99,8 @@ function onePlay(){
 return document.getElementsByName('result')[0].value= onePlay();
 
 function scoreCount(){
-
+let playerScore = 0;
+let computerScore = 0;
 if(getWin() === 'you won'){
     return playerScore + 1;
 }else{
