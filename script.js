@@ -1,85 +1,93 @@
 //start the game 
-const btn = document.querySelector('btn')
-const rock = document.querySelector('rock');
-const paper = document.querySelector('paper');
-const scissors = document.querySelector('scissors');
 
-btn.append(rock)
-btn.append(paper)
-btn.append(scissors)
+;;debugger
+const btn = document.querySelector('#btn')
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+
+btn.appendChild(rock)
+btn.appendChild(paper)
+btn.appendChild(scissors)
 
 btn.addEventListener('click', playRound);
 
 
+    function playRound(event){
 
-    function playRound(){
-        let PlayerSelection = choice();
-        function choice() {
-            if (btn = rock){
+
+        function playerS(){
+
+
+            let PlayerSelection =  '';
+            if (event.target.dataset.type == 'rock'){
             return PlayerSelection = 'rock';
-        }else if (btn = paper){
+        }else if (event.target.dataset.type == 'paper'){
             return PlayerSelection = 'paper';
-        }else if (btn = scissors){
+        }else if (event.target.dataset.type == 'scissors'){
             return PlayerSelection = 'scissors';
-        }
     };
+            return PlayerSelection;
+        }
+
+
 
         let possibleChoices = ['rock', 'paper', 'scissors'];
 
 
+        function getComputerChoice() {
+
+        let computerChoice= ''
+            let getChoice = Math.floor(Math.random() * possibleChoices.length)
+                if (getChoice === 0){
+                    computerChoice = 'rock';
+                }else if(getChoice <=1){
+                    computerChoice = 'paper';
+                }else{
+                    computerChoice = 'scissors'
+                }
+                return computerChoice;
+         }
+
+
 function onePlay(){
-    //computer chooses between rock, paper, scissors
-function getComputerChoice() {
-    let getChoice = Math.floor(Math.random() * possibleChoices.length)
-        if (getChoice === 0){
-            getChoice = 'rock';
-        }else if(getChoice <=1){
-            getChoice = 'paper';
-        }else{
-            getChoice = 'scissors'
-        }
-        return(getChoice);
- }
+
    
 
-        function getWin(playerSelection, getComputerChoice){
-            if (playerSelection === getComputerChoice){
-               return('tie')
+        function getWin(PlayerSelection, computerChoice){
+            if (PlayerSelection === computerChoice){
+                return('tie')
             }
-            //player chose rock
-            if (playerSelection === 'rock') {
+            if (PlayerSelection === 'rock') {
             
-                if (getComputerChoice === 'paper') {
+                if (computerChoice === 'paper') {
                     return('you lost')
                 }
                 else{
                     return('you won')
                 }
 
-            //player chose paper
             }
-            if (playerSelection === 'paper'){
-                if (getComputerChoice === 'scissors'){
+            if (PlayerSelection === 'paper'){
+                if (computerChoice === 'scissors'){
                     return('you lost')
                 }
                 else{
                     return('you won')
                 }
             }
-            //player chose scissos
-            if (playerSelection === 'scissors'){
-                if (getComputerChoice === 'paper'){
+            if (PlayerSelection === 'scissors'){
+                if (computerChoice === 'paper'){
                     return('you won')
                 }
                 else{
                     return('you lost')
                 }
-        }
-        return(getWin);
-       
-        }
 
+        }
+        }
+ return getWin(playerS(), getComputerChoice());
         
-    return(onePlay(PlayerSelection, getComputerChoice())); 
 }
+    return alert(onePlay());
 }
