@@ -1,14 +1,21 @@
 //start the game 
 
 ;;debugger
-const btn = document.querySelector('#btn')
+const btn = document.querySelector('#btn');
 const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 
+const score = document.querySelector('#score');
+const playerScore = document.querySelector('#playerScore');
+const computerScore = document.querySelector('#computerScore');
+
 btn.appendChild(rock)
 btn.appendChild(paper)
 btn.appendChild(scissors)
+
+score.append(playerScore)
+score.append(computerScore)
 
 btn.addEventListener('click', playRound);
 
@@ -49,7 +56,6 @@ btn.addEventListener('click', playRound);
                 return computerChoice;
          }
 
-
 function onePlay(){
 
    
@@ -89,5 +95,16 @@ function onePlay(){
  return getWin(playerS(), getComputerChoice());
         
 }
-    return alert(onePlay());
+
+return document.getElementsByName('result')[0].value= onePlay();
+
+function scoreCount(){
+
+if(getWin() === 'you won'){
+    return playerScore + 1;
+}else{
+    return computerScore +1;
 }
+}
+return document.getElementsByName('score')[0].value = scoreCount();
+    }
