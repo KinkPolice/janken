@@ -6,7 +6,6 @@ const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 
-const score = document.querySelector('#score');
 const playerScore = document.querySelector('#playerScore');
 const computerScore = document.querySelector('#computerScore');
 
@@ -14,8 +13,6 @@ btn.appendChild(rock)
 btn.appendChild(paper)
 btn.appendChild(scissors)
 
-score.append(playerScore)
-score.append(computerScore)
 
 btn.addEventListener('click', playRound);
 
@@ -61,6 +58,7 @@ function onePlay(){
    
 
         function getWin(PlayerSelection, computerChoice){
+            win = ''
             if (PlayerSelection === computerChoice){
                 return('tie')
             }
@@ -96,16 +94,19 @@ function onePlay(){
         
 }
 
-return document.getElementsByName('result')[0].value= onePlay();
+document.getElementsByName('result')[0].value= onePlay();
+
 
 function scoreCount(){
 let playerScore = 0;
 let computerScore = 0;
-if(getWin() === 'you won'){
-    return playerScore + 1;
+if(win === 'you won'){
+    playerScore= playerScore + 1;
+    return document.querySelector('#playerScore').value(playerScore);
 }else{
-    return computerScore +1;
+    computerScore = computerScore +1;
+    return document.querySelector('#computerScore').value(computerScore);
 }
 }
-return document.getElementsByName('score')[0].value = scoreCount();
+document.getElementsByName('score')[0].value = scoreCount();
     }
