@@ -88,7 +88,8 @@ function onePlay(){
 
 }
 
-onePlay();
+onePlay()
+
 
     function scoreCount(win){
         if(win === 'you won'){
@@ -101,6 +102,19 @@ onePlay();
         }
         if(win === 'tie'){
             win
+        }
+    }
+
+    fiveRounds(playerScores, computerScores)
+
+
+    function fiveRounds(playerScores, computerScores){
+        if (playerScores >= 5){
+            let playerWin = 'you won the game!'
+            document.querySelector('#playerScore input').value = playerWin;
+        }if (computerScores >= 5){
+            let computerWin = 'computer wont the game!'
+            document.querySelector('computerScore input').value = computerWin;
         }
     }
 }
