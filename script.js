@@ -1,6 +1,4 @@
-//start the game 
-
-;;debugger
+debugger;;
 const btn = document.querySelector('#btn');
 const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
@@ -13,14 +11,15 @@ btn.appendChild(rock)
 btn.appendChild(paper)
 btn.appendChild(scissors)
 
-
 btn.addEventListener('click', playRound);
+
+let playerScores = 0;
+let computerScores = 0;
+
 
 
     function playRound(event){
-
-
-        function playerS(){
+        function playerS() {
 
 
             let PlayerSelection =  '';
@@ -34,12 +33,9 @@ btn.addEventListener('click', playRound);
             return PlayerSelection;
         }
 
-
-
         let possibleChoices = ['rock', 'paper', 'scissors'];
 
-
-        function getComputerChoice() {
+    function getComputerChoice() {
 
         let computerChoice= ''
             let getChoice = Math.floor(Math.random() * possibleChoices.length)
@@ -52,62 +48,59 @@ btn.addEventListener('click', playRound);
                 }
                 return computerChoice;
          }
-
+         
 function onePlay(){
-
-   
-
         function getWin(PlayerSelection, computerChoice){
-            win = ''
             if (PlayerSelection === computerChoice){
                 return('tie')
             }
             if (PlayerSelection === 'rock') {
             
                 if (computerChoice === 'paper') {
-                    return('you lost')
+                    return 'you lost'
                 }
                 else{
-                    return('you won')
+                    return 'you won'
                 }
 
             }
             if (PlayerSelection === 'paper'){
                 if (computerChoice === 'scissors'){
-                    return('you lost')
+                    return 'you lost'
                 }
                 else{
-                    return('you won')
+                    return 'you won'
                 }
             }
             if (PlayerSelection === 'scissors'){
                 if (computerChoice === 'paper'){
-                    return('you won')
+                    return 'you won'
                 }
                 else{
-                    return('you lost')
+                    return 'you lost'
                 }
-
+             }
         }
-        }
- return getWin(playerS(), getComputerChoice());
+        let win = getWin(playerS(), getComputerChoice());
+        document.getElementsByName('result')[0].value= win;
+        scoreCount(win)
         
+
 }
 
-document.getElementsByName('result')[0].value= onePlay();
+onePlay();
 
+    function scoreCount(win){
+        if(win === 'you won'){
+                playerScores++
+                document.querySelector('#playerScore input').value = playerScores;
 
-function scoreCount(){
-let playerScore = 0;
-let computerScore = 0;
-if(win === 'you won'){
-    playerScore= playerScore + 1;
-    return document.querySelector('#playerScore input').value(playerScore);
-}else{
-    computerScore = computerScore +1;
-    return document.querySelector('#computerScore input').value(computerScore);
-}
-}
-
-document.getElementsById('playerScore input')[0].value = scoreCount;
+        }if(win === 'you lost'){ 
+                computerScores++
+                document.querySelector('#computerScore input').value = computerScores;
+        }
+        if(win === 'tie'){
+            win
+        }
     }
+}
