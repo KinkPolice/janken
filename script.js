@@ -1,57 +1,120 @@
+debugger;;
+const btn = document.querySelector('#btn');
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
 
-//start the game 
-let PlayerSelection = (prompt('rock, paper, scissors?'));
-let possibleChoices = ['rock', 'paper', 'scissors'];
+const playerScore = document.querySelector('#playerScore');
+const computerScore = document.querySelector('#computerScore');
 
-    //computer chooses between rock, paper, scissors
-function getComputerChoice() {
-    let getChoice = Math.floor(Math.random() * possibleChoices.length)
-        if (getChoice === 0){
-            getChoice = 'rock';
-        }else if(getChoice <=1){
-            getChoice = 'paper';
-        }else{
-            getChoice = 'scissors'
+btn.appendChild(rock)
+btn.appendChild(paper)
+btn.appendChild(scissors)
+
+btn.addEventListener('click', playRound);
+
+let playerScores = 0;
+let computerScores = 0;
+
+
+
+    function playRound(event){
+        function playerS() {
+
+
+            let PlayerSelection =  '';
+            if (event.target.dataset.type == 'rock'){
+            return PlayerSelection = 'rock';
+        }else if (event.target.dataset.type == 'paper'){
+            return PlayerSelection = 'paper';
+        }else if (event.target.dataset.type == 'scissors'){
+            return PlayerSelection = 'scissors';
+    };
+            return PlayerSelection;
         }
-        return(getChoice);
- }
-   
 
-        function getWin(playerSelection, getComputerChoice){
-            if (playerSelection === getComputerChoice){
-               return('tie')
+        let possibleChoices = ['rock', 'paper', 'scissors'];
+
+    function getComputerChoice() {
+
+        let computerChoice= ''
+            let getChoice = Math.floor(Math.random() * possibleChoices.length)
+                if (getChoice === 0){
+                    computerChoice = 'rock';
+                }else if(getChoice <=1){
+                    computerChoice = 'paper';
+                }else{
+                    computerChoice = 'scissors'
+                }
+                return computerChoice;
+         }
+         
+function onePlay(){
+        function getWin(PlayerSelection, computerChoice){
+            if (PlayerSelection === computerChoice){
+                return('tie')
             }
-            //player chose rock
-            if (playerSelection === 'rock') {
+            if (PlayerSelection === 'rock') {
             
-                if (getComputerChoice === 'paper') {
-                    return('you lost')
+                if (computerChoice === 'paper') {
+                    return 'you lost'
                 }
                 else{
-                    return('you won')
+                    return 'you won'
                 }
 
-            //player chose paper
             }
-            if (playerSelection === 'paper'){
-                if (getComputerChoice === 'scissors'){
-                    return('you lost')
+            if (PlayerSelection === 'paper'){
+                if (computerChoice === 'scissors'){
+                    return 'you lost'
                 }
                 else{
-                    return('you won')
+                    return 'you won'
                 }
             }
-            //player chose scissos
-            if (playerSelection === 'scissors'){
-                if (getComputerChoice === 'paper'){
-                    return('you won')
+            if (PlayerSelection === 'scissors'){
+                if (computerChoice === 'paper'){
+                    return 'you won'
                 }
                 else{
-                    return('you lost')
+                    return 'you lost'
                 }
+             }
         }
-        return(getWin);
-       
-        }
+        let win = getWin(playerS(), getComputerChoice());
+        document.getElementsByName('result')[0].value= win;
+        scoreCount(win)
+        
 
-        console.log(getWin(PlayerSelection, getComputerChoice()));
+}
+
+onePlay()
+
+
+    function scoreCount(win){
+        if(win === 'you won'){
+                playerScores++
+                document.querySelector('#playerScore input').value = playerScores;
+
+        }if(win === 'you lost'){ 
+                computerScores++
+                document.querySelector('#computerScore input').value = computerScores;
+        }
+        if(win === 'tie'){
+            win
+        }
+    }
+
+    fiveRounds(playerScores, computerScores)
+
+
+    function fiveRounds(playerScores, computerScores){
+        if (playerScores >= 5){
+            let playerWin = 'you won the game!'
+            document.querySelector('#playerScore input').value = playerWin;
+        }if (computerScores >= 5){
+            let computerWin = 'computer wont the game!'
+            document.querySelector('computerScore input').value = computerWin;
+        }
+    }
+}
